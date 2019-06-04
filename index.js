@@ -8,12 +8,11 @@ const config = require('./config.json');
 const router = MessageRouter();
 
 // Matches an amount of dice with a given size
-// Returns a message with rolls made + sum
 router.add(require('./routes/roll-dice'));
 
 // Set up the bot
 client.once('ready', () => {
-    console.log('Ready!');
+    console.log('I am Sibot, the discord bot. Beep, borp.');
 });
 
 client.on('message', message => {
@@ -23,7 +22,7 @@ client.on('message', message => {
 
     const matchedRoute = router.test(message.content);
     if (matchedRoute) {
-        matchedRoute.callback({
+        matchedRoute.controller({
             message,
             data: matchedRoute.data
         });

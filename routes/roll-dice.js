@@ -14,11 +14,11 @@ function rollDice(amount, size) {
 
 module.exports = {
     pattern: /^\.(?<amount>\d+)?d(?<size>\d+)\s?(?<suffix>(?<suffixType>[\+\-])\s?(?<suffixAmount>\d+))?$/i,
-    callback({ message, data }) {
+    controller({ message, data }) {
         const groups = data.groups;
         const amount = parseInt(groups.amount || 1, 10);
         const size = parseInt(groups.size || 20, 10);
-        
+
         const result = rollDice(amount, size);
         const sum = result.reduce((sum, roll) => sum + roll);
 
