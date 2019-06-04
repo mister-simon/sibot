@@ -22,22 +22,21 @@ module.exports = {
         const result = rollDice(amount, size);
         const sum = result.reduce((sum, roll) => sum + roll);
 
-        const rolls = result.map((roll) => {
+        const response = StringResponse();
+
+        response.append(result.map((roll) => {
             if (roll === 1 || roll === size) {
                 return `**${roll}**`;
             }
             return roll;
-        }).join(', ');
-
-        const response = StringResponse();
-        response.append(rolls);
+        }).join(', '));
 
         if (amount !== 1) {
             response.line(` = ${sum}`);
         }
 
         if (groups.suffix) {
-            const suffixAmount = parseInt(groups.suffixAmount);
+            const suffixAmount = parseInt(groups.suffixAmount, 10);
             const suffixType = groups.suffixType;
             const subtotal = suffixType === "+" ? sum + suffixAmount : sum - suffixAmount;
             response.append(` (${suffixType} ${suffixAmount} = ${subtotal})`);
