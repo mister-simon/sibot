@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "sibot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "eslint": "^5.16.0"
+  }
+}

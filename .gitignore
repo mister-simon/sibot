@@ -1,0 +1,4 @@
+node_modules
+.vscode
+spells.json
+package-lock.json
