@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const MessageRouter = require('./lib/MessageRouter');
+const MessageHandler = require('./lib/MessageHandler');
 
 const config = require('./config.json');
 
@@ -12,21 +13,13 @@ router.add(require('./routes/roll-dice'));
 
 // Set up the bot
 client.once('ready', () => {
-    console.log('I am Sibot, the discord bot. Beep, borp.');
+    console.log(`
+    ______i___
+    |O      0|
+    | ==~~== |  < I am Sibot, the discord bot. )
+    ‾‾‾‾‾‾‾‾‾‾   \\       Beep, borp.          /`);
 });
 
-client.on('message', message => {
-    if (message.author.bot) {
-        return;
-    }
-
-    const matchedRoute = router.test(message.content);
-    if (matchedRoute) {
-        matchedRoute.controller({
-            message,
-            data: matchedRoute.data
-        });
-    }
-});
+client.on('message', MessageHandler(router));
 
 client.login(config.botToken);
