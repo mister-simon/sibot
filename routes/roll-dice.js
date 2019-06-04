@@ -1,4 +1,4 @@
-const StringResponse = require('./lib/StringResponse');
+const StringResponse = require('../lib/StringResponse');
 
 function rollDie(size) {
     return Math.ceil(Math.random() * size);
@@ -21,7 +21,7 @@ module.exports = {
         
         const result = rollDice(amount, size);
         const sum = result.reduce((sum, roll) => sum + roll);
-        
+
         const rolls = result.map((roll) => {
             if (roll === 1 || roll === size) {
                 return `**${roll}**`;

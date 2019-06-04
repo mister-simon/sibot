@@ -5,11 +5,11 @@ const MessageRouter = require('./lib/MessageRouter');
 const config = require('./config.json');
 
 // Create the routes
-const router = MessageRouter(require('./routes/roll-dice'));
+const router = MessageRouter();
 
 // Matches an amount of dice with a given size
 // Returns a message with rolls made + sum
-router.add();
+router.add(require('./routes/roll-dice'));
 
 // Set up the bot
 client.once('ready', () => {
