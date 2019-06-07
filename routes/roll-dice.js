@@ -13,6 +13,7 @@ function rollDice(amount, size) {
 }
 
 module.exports = {
+    description: 'Rolls dice in the form "*d* [+/-] *", where * is an integer. Shorthand "d*"to roll just 1.',
     pattern: /^\.(?<amount>\d+)?d(?<size>\d+)\s?(?<suffix>(?<suffixType>[\+\-])\s?(?<suffixAmount>\d+))?$/i,
     controller({ message, data }) {
         const groups = data.groups;
