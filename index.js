@@ -5,7 +5,6 @@ const router = require('./router');
 
 const config = require('./config.json');
 
-
 // Set up the bot
 client.once('ready', () => {
     console.log(`
