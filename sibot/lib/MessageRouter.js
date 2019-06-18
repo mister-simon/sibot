@@ -9,6 +9,14 @@ module.exports = function messageRouter () {
         return message === pattern;
     }
 
+    function testMetadata (route, metadata) {
+        if (route.authorise) {
+            return route.authorise(metadata);
+        }
+
+        return metadata.isSelf === false;
+    }
+
     function matchPattern (pattern, message) {
         if (pattern instanceof RegExp) {
             return message.match(pattern);
@@ -21,9 +29,9 @@ module.exports = function messageRouter () {
         add (route) {
             routes.push(route);
         },
-        test (message) {
+        test (message, metadata) {
             for (const route of routes) {
-                if (testPattern(route.pattern, message)) {
+                if (testPattern(route.pattern, message) && testMetadata(route, metadata)) {
                     return {
                         controller: route.controller,
                         data: matchPattern(route.pattern, message)

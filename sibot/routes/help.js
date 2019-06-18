@@ -1,5 +1,5 @@
+const { escape } = require('../lib/StringResponseUtils');
 const StringResponse = require('../lib/StringResponse');
-const escape = require('../lib/EscapeDiscord');
 
 function help (router) {
     return {
@@ -10,12 +10,13 @@ function help (router) {
             const routes = router.list();
             const response = StringResponse();
 
-            response.line('Available commands:');
+            response.line(`I can do some things, which I will now list for you. Boopity blarp ~ I am ${message.client.user.username}.`);
+            response.line('**Example command** - Description.\n');
             routes.forEach(({ example, description }) => {
                 response.line(`**${escape(example)}** - ${escape(description)}`);
             });
 
-            message.channel.send(response.render());
+            message.author.send(response.render());
         }
     };
 }

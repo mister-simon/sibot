@@ -1,15 +1,18 @@
-module.exports = function MessageHandler (router) {
+module.exports = function MessageHandler ({ router, owner, username }) {
     return function handler (message) {
-        if (message.author.bot) {
-            return;
-        }
+        const isBot = message.author.bot;
+        const isSelf = isBot && message.author.username === username;
+        const isOwner = message.author.username === owner;
 
-        const matchedRoute = router.test(message.content);
+        const matchedRoute = router.test(message.content, { isBot, isSelf, isOwner });
 
         if (matchedRoute) {
             matchedRoute.controller({
+                data: matchedRoute.data,
                 message,
-                data: matchedRoute.data
+                isOwner,
+                isBot,
+                isSelf
             });
         }
     };

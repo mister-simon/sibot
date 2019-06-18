@@ -1,3 +1,4 @@
+const { mention } = require('../lib/StringResponseUtils');
 const StringResponse = require('../lib/StringResponse');
 
 function rollDie (size) {
@@ -26,6 +27,17 @@ module.exports = {
 
         const response = StringResponse();
 
+        // @ them
+        response.append(mention(message.author) + ' ');
+
+        // Bail early if its a d0.
+        if (size === 0) {
+            response.append(`I threw ${amount} no-sided ${amount === 1 ? 'die' : 'dice'}. But ${amount === 1 ? 'it' : 'they'} never landed...`);
+            message.channel.send(response.render());
+            return;
+        }
+
+        // List all their rolls, highlighting crits + fails
         response.append(
             result
                 .map((roll) => {
@@ -37,10 +49,12 @@ module.exports = {
                 .join(', ')
         );
 
+        // Sum it
         if (amount !== 1) {
             response.line(` = ${sum}`);
         }
 
+        // Append any additions + a subtotal
         if (groups.suffix) {
             const suffixAmount = parseInt(groups.suffixAmount, 10);
             const suffixType = groups.suffixType;
@@ -48,6 +62,7 @@ module.exports = {
             response.append(` (${suffixType} ${suffixAmount} = ${subtotal})`);
         }
 
+        // Send it
         message.channel.send(response.render());
     }
 };
