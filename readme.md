@@ -2,7 +2,7 @@
 
 A new bot to do some things and stuff, you know.
 
-[Add Sibot to your server?](https://discordapp.com/oauth2/authorize?client_id=185587594673782794&scope=bot)
+[Add Sibot to your server?](https://discordapp.com/oauth2/authorize?client_id=185587594673782794&scope=bot) (Note - They're likely to only be live when I'm working on 'em.)
 
 ## Setup
 
