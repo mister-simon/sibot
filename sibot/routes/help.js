@@ -6,8 +6,8 @@ function help (router) {
         example: '.help',
         description: 'What the bot can do for you.',
         pattern: '.help',
-        controller ({ message }) {
-            const routes = router.list();
+        controller ({ message, isBot, isSelf, isOwner }) {
+            const routes = router.list({ isBot, isSelf, isOwner });
             const response = StringResponse();
 
             response.line(`I can do some things, which I will now list for you. Boopity blarp ~ I am ${message.client.user.username}.`);

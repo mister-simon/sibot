@@ -40,10 +40,12 @@ module.exports = function messageRouter () {
             }
             return null;
         },
-        list () {
-            return routes.map(({ example, description }) => {
-                return { example, description };
-            });
+        list (metadata) {
+            return routes
+                .filter((route) => testMetadata(route, metadata))
+                .map(({ example, description }) => {
+                    return { example, description };
+                });
         }
     };
 };

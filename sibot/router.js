@@ -3,16 +3,17 @@ const MessageRouter = require('./lib/MessageRouter');
 // Create the router
 const router = MessageRouter();
 
-// List the available routes
+// Pass the router to the help route to allow it to list other routes.
 router.add(require('./routes/help')(router));
 
-// Matches an amount of dice with a given size
-router.add(require('./routes/roll-dice'));
+// Owner routes
+router.add(require('./routes/setActivity'));
 
-// Matches an amount of dice with a given size
+// General routes
+router.add(require('./routes/roll-dice'));
 router.add(require('./routes/ping'));
 
-// Catch literally any message not matching other routes
+// Fallback route, catches all
 router.add(require('./routes/any'));
 
 module.exports = router;
