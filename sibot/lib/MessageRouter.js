@@ -14,7 +14,7 @@ module.exports = function messageRouter () {
             return route.authorise(metadata);
         }
 
-        return metadata.isSelf === false;
+        return metadata.isEdit === false || metadata.isSelf === false;
     }
 
     function matchPattern (pattern, message) {
