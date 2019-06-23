@@ -17,6 +17,7 @@ function help (router) {
             });
 
             message.author.send(response.render());
+            message.channel.send('Get helped~ (in yr DMs).');
         }
     };
 }
