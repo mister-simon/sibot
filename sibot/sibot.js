@@ -18,11 +18,7 @@ module.exports = ({ token, owner }) => {
         client.on('message', handler);
         client.on('messageUpdate', (oldMessage, newMessage) => handler(newMessage, oldMessage));
 
-        console.log(`
-        ______i___
-        |O      0|
-        | ==~~== |  < I am Sibot, the discord bot. )
-        ‾‾‾‾‾‾‾‾‾‾   \\       Beep, borp.          /`);
+        console.log(require('./lib/sibot-intro/intro'));
     });
 
     client.login(token);
