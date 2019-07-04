@@ -73,7 +73,6 @@ module.exports = {
             return;
         }
 
-
         // Update our old message?
         if (responseMap[oldMessage.id] !== undefined) {
             responseMap[oldMessage.id].edit(response.render());

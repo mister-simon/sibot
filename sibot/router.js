@@ -9,6 +9,7 @@ router.add(require('./routes/help')(router));
 // Owner routes
 router.add(require('./routes/setActivity'));
 router.add(require('./routes/setProfile'));
+router.add(require('./routes/say'));
 
 // General routes
 router.add(require('./routes/roll-dice'));
