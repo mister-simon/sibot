@@ -1,5 +1,8 @@
 // @ts-ignore
-const config = require('./config.json');
 const sibot = require('./sibot/sibot');
+const config = require('./config');
 
-sibot(config.sibot);
+sibot({
+    token: config.DISCORD_TOKEN,
+    owner: config.DISCORD_OWNER
+});

@@ -3,3 +3,4 @@ node_modules
 spells.json
 package-lock.json
 config.json
+.env
