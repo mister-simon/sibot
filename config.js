@@ -9,6 +9,7 @@ function getEnv() {
     return {
         DISCORD_OWNER,
         DISCORD_TOKEN,
+        PORT
     };
 }
 
