@@ -4,7 +4,7 @@ const StringResponse = require('../lib/StringResponse');
 function help(router) {
     return {
         example: '.help',
-        description: 'What the bot can do for you.',
+        description: 'Will DM you the commands you can use.',
         pattern: '.help',
         controller({ message, isBot, isSelf, isOwner }) {
             const routes = router.list({ isBot, isSelf, isOwner });

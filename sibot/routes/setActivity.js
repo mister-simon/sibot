@@ -1,6 +1,6 @@
 module.exports = {
     example: '.activity being a good robot',
-    description: 'Set Sibot\'s activity "Playing ..."',
+    description: '[Owner] Set Sibot\'s activity "Playing ..."',
     pattern: /^\.activity (?<activity>.+)/,
     authorise: ({ isOwner }) => isOwner,
     controller({ message, data }) {

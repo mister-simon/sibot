@@ -1,6 +1,6 @@
 module.exports = {
     example: '.profile',
-    description: 'Set the profile picture (w/ attached image).',
+    description: '[Owner] Set the profile picture (w/ attached image).',
     pattern: /\.profile(.*)/,
     authorise: ({ isOwner }) => isOwner,
     async controller({ message }) {

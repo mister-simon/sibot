@@ -15,7 +15,7 @@
     <div class="container">
         <h1>Welcome to Sibot - The Discord Bot</h1>
 
-        <pre aria-hidden="true"> <%= sibotAscii -%> </pre>
+        <pre aria-hidden="true"> <%- sibotAscii -%> </pre>
 
         <h2>Here are some things Sibot can do:</h2>
 
@@ -29,13 +29,12 @@
             <tbody>
                 <% routes.forEach(function({ example, description }){ %>
                 <tr>
-                    <td><strong><%= example %></strong></td>
-                    <td><%= description %></td>
+                    <td><strong><%- example %></strong></td>
+                    <td><%- description %></td>
                 </tr>
                 <% }) %>
             </tbody>
         </table>
-
     </div>
 </body>
 

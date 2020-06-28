@@ -4,7 +4,7 @@ const sibotRouter = require('../sibot/router');
 const art = require('../sibot/lib/sibot-intro/art');
 
 module.exports = ({ PORT }) => {
-    const sibotRoutes = sibotRouter.list({ isOwner: true });
+    const sibotRoutes = sibotRouter.list({ isOwner: true, isSelf: false });
 
     return express()
         .use(express.static(path.join(__dirname, 'public')))
