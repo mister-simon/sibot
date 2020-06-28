@@ -23,7 +23,7 @@ function channelDescriptor(channel) {
 
 module.exports = {
     example: '.say',
-    description: 'Say something to a particular channel',
+    description: '[Owner] Say something to a particular channel',
     pattern: /^\.say(\s(?<channel>(\d+|-1)))?(\s"(?<text>[^"]+)")?/,
     authorise: ({ isOwner }) => isOwner,
     async controller({ message, data, isEdit, oldMessage }) {
