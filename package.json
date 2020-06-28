@@ -2,12 +2,12 @@
     "private": true,
     "name": "sibot",
     "version": "1.0.0",
-    "description": "",
+    "description": "A discord bot I made for fun...",
     "main": "index.js",
     "scripts": {
         "bot": "node index.js"
     },
-    "author": "",
+    "author": "mister-simon",
     "license": "ISC",
     "dependencies": {
         "discord.js": "^11.5.1",
