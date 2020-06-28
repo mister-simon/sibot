@@ -4,7 +4,7 @@ function getEnv() {
         require('dotenv').config();
     } catch (err) {}
 
-    const { DISCORD_OWNER, DISCORD_TOKEN } = process.env;
+    const { DISCORD_OWNER, DISCORD_TOKEN, PORT } = process.env;
 
     return {
         DISCORD_OWNER,
