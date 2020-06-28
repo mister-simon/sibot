@@ -13,7 +13,7 @@ module.exports = ({ token, owner }) => {
         const handler = MessageHandler({
             router,
             owner,
-            username: client.user.username,
+            username: client.user.username
         });
 
         client.on('message', handler);
