@@ -13,5 +13,8 @@ A new bot to do some things and stuff, you know.
 1. Find your bot's client id + add your bot to your server
     - `https://discordapp.com/oauth2/authorize?client_id=YOUR_BOT_ID&scope=bot`
 1. `node index.js`
+    - Alternately install `nodemon` and run `nodemon index.js` to keep the server alive / restarting during local development.
+    - Visit the local server `localhost:8888`, or tweak your `PORT` in `.env`.
 1. In your server type `.help`
+    - Or visit [Sibot's current server location](https://discord-sibot.herokuapp.com/) for more info.
     - Alternately, look at `sibot/router.js` to see available commands.
