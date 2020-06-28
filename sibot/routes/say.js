@@ -22,8 +22,8 @@ function channelDescriptor(channel) {
 }
 
 module.exports = {
-    example: '.say',
-    description: '[Owner] Say something to a particular channel',
+    example: '.say 1 "Hello world!"',
+    description: '[Owner] Use ".say" to list channels. Select a channel by specifying a number. Provide a string quote to say. Omit the number to send to previously selected channel.',
     pattern: /^\.say(\s(?<channel>(\d+|-1)))?(\s"(?<text>[^"]+)")?/,
     authorise: ({ isOwner }) => isOwner,
     async controller({ message, data, isEdit, oldMessage }) {
