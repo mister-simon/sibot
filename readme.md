@@ -4,6 +4,12 @@ A new bot to do some things and stuff, you know.
 
 [Add Sibot to your server?](https://discordapp.com/oauth2/authorize?client_id=185587594673782794&scope=bot) (Note - They're likely to only be live when I'm working on 'em.)
 
+## Make it your own?
+
+-   Feel free to clone this repo and tinker with it however you like.
+-   I'm just working on this for fun, so don't expect it to suit your needs.
+-   If you do make it do something cool though, I guess send a pull request this way?
+
 ## Setup
 
 1. `npm i`
