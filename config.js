@@ -1,9 +1,26 @@
-const result = require('dotenv').config();
+function getEnv() {
+    // Set up .env variables if available
+    try {
+        require('dotenv').config();
+    } catch (err) {}
 
-if (result.error) {
-    throw result.error;
+    const { DISCORD_OWNER, DISCORD_TOKEN } = process.env;
+
+    return {
+        DISCORD_OWNER,
+        DISCORD_TOKEN,
+    };
 }
 
-const config = result.parsed;
+function getConfigJson() {
+    try {
+        return require('config.json');
+    } catch (err) {
+        return {};
+    }
+}
 
-export default config;
+module.exports = {
+    ...getConfigJson(),
+    env: getEnv(),
+};

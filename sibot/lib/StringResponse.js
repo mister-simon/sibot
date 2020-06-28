@@ -1,15 +1,15 @@
-module.exports = function StringResponse () {
+module.exports = function StringResponse() {
     const items = [];
 
     return {
-        line (content) {
+        line(content) {
             items.push('\n', content);
         },
-        append (content) {
+        append(content) {
             items.push(content);
         },
-        render () {
+        render() {
             return items.join('').trim();
-        }
+        },
     };
 };

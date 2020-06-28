@@ -1,8 +1,8 @@
 // @ts-ignore
 const sibot = require('./sibot/sibot');
-const config = require('./config');
+const { env } = require('./config');
 
 sibot({
-    token: config.DISCORD_TOKEN,
-    owner: config.DISCORD_OWNER
+    token: env.DISCORD_TOKEN,
+    owner: env.DISCORD_OWNER,
 });

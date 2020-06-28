@@ -1,0 +1,42 @@
+{
+    "slotMachine": {
+        "options": [
+            {
+                "value": {
+                    "name": ":tada:"
+                },
+                "weight": 5
+            },
+            {
+                "value": {
+                    "name": ":joy:"
+                },
+                "weight": 15
+            },
+            {
+                "value": {
+                    "name": ":ok_hand:"
+                },
+                "weight": 45
+            },
+            {
+                "value": {
+                    "name": ":thinking:"
+                },
+                "weight": 55
+            },
+            {
+                "value": {
+                    "name": ":weary:"
+                },
+                "weight": 60
+            },
+            {
+                "value": {
+                    "name": ":sob:"
+                },
+                "weight": 65
+            }
+        ]
+    }
+}

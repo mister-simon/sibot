@@ -1,12 +1,12 @@
 const { escape } = require('../lib/StringResponseUtils');
 const StringResponse = require('../lib/StringResponse');
 
-function help (router) {
+function help(router) {
     return {
         example: '.help',
         description: 'What the bot can do for you.',
         pattern: '.help',
-        controller ({ message, isBot, isSelf, isOwner }) {
+        controller({ message, isBot, isSelf, isOwner }) {
             const routes = router.list({ isBot, isSelf, isOwner });
             const response = StringResponse();
 
@@ -17,7 +17,8 @@ function help (router) {
             });
 
             message.author.send(response.render());
-        }
+            message.channel.send('Get helped~ (in yr DMs).');
+        },
     };
 }
 

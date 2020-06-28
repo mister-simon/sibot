@@ -1,11 +1,12 @@
 const { mention } = require('../lib/StringResponseUtils');
 const StringResponse = require('../lib/StringResponse');
+const responseMap = {};
 
-function rollDie (size) {
+function rollDie(size) {
     return Math.ceil(Math.random() * size);
 }
 
-function rollDice (amount, size) {
+function rollDice(amount, size) {
     let result = [];
     for (let rollNumber = 0; rollNumber < amount; rollNumber++) {
         result.push(rollDie(size));
@@ -17,7 +18,8 @@ module.exports = {
     example: '.4d20 + 2',
     description: 'Rolls dice in the form "*d* [+/-] *", where * is an integer. Shorthand "d*" to roll just 1.',
     pattern: /^\.(?<amount>\d+)?d(?<size>\d+)\s?(?<suffix>(?<suffixType>[+-])\s?(?<suffixAmount>\d+))?$/i,
-    controller ({ message, data }) {
+    authorise: ({ isSelf }) => !isSelf,
+    async controller({ message, data, isEdit, oldMessage }) {
         const groups = data.groups;
         const amount = parseInt(groups.amount || 1, 10);
         const size = parseInt(groups.size || 20, 10);
@@ -62,7 +64,18 @@ module.exports = {
             response.append(` (${suffixType} ${suffixAmount} = ${subtotal})`);
         }
 
+        console.log(responseMap, arguments);
+
         // Send it
-        message.channel.send(response.render());
-    }
+        if (isEdit === false) {
+            const reply = await message.channel.send(response.render());
+            responseMap[message.id] = reply;
+            return;
+        }
+
+        // Update our old message?
+        if (responseMap[oldMessage.id] !== undefined) {
+            responseMap[oldMessage.id].edit(response.render());
+        }
+    },
 };
