@@ -3,8 +3,8 @@ const path = require('path');
 const sibotRouter = require('../sibot/router');
 const art = require('../sibot/lib/sibot-intro/art');
 
-module.exports = ({ PORT }) => {
-    const sibotRoutes = sibotRouter.list({ isOwner: true, isSelf: false });
+module.exports = ({ PORT, SERVER_URL }) => {
+    const sibotRoutes = sibotRouter.list();
 
     return express()
         .use(express.static(path.join(__dirname, 'public')))
@@ -16,5 +16,6 @@ module.exports = ({ PORT }) => {
                 routes: sibotRoutes,
             })
         )
-        .listen(PORT, () => console.log(`Listening on ${PORT}`));
+        .get('/ping', (req, res) => res.sendStatus(200))
+        .listen(PORT);
 };

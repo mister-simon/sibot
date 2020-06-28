@@ -42,7 +42,7 @@ module.exports = function messageRouter() {
         },
         list(metadata) {
             return routes
-                .filter((route) => testMetadata(route, metadata))
+                .filter((route) => metadata === undefined || testMetadata(route, metadata))
                 .map(({ example, description }) => {
                     return { example, description };
                 });

@@ -9,5 +9,5 @@ sibot({
 });
 
 server({
-    PORT: env.PORT || 5000
+    PORT: env.PORT || 8888
 });
