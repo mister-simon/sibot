@@ -6,7 +6,7 @@ A new bot to do some things and stuff, you know.
 
 ## Make it your own?
 
--   Feel free to clone this repo and tinker with it however you like.
+-   Feel free to clone/fork this repo and tinker with it however you like.
 -   I'm just working on this for fun, so don't expect it to suit your needs.
 -   If you do make it do something cool though, I guess send a pull request this way?
 
