@@ -15,6 +15,10 @@ router.add(require('./routes/say'));
 router.add(require('./routes/roll-dice'));
 router.add(require('./routes/ping'));
 
+// Minecraft routes
+router.add(require('./routes/overworld-to-nether'));
+router.add(require('./routes/nether-to-overworld'));
+
 // Fallback route, catches all
 router.add(require('./routes/any'));
 
